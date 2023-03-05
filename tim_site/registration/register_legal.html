@@ -1,0 +1,14 @@
+{% extends "base_generic.html" %}
+
+{% block title %}<title>Register</title>{% endblock %}
+
+{% block main %}
+    <main class="form-control form-control-medium">
+        <form method="post" action="">
+            {% csrf_token %}
+            <h1 class="h3 mb-3 fw-normal">Please register as legal person</h1>
+            {{ form }}
+            <button class="mt-1 btn btn-lg btn-primary" type="submit" value="login">Register</button>
+        </form>
+    </main>
+{% endblock %}

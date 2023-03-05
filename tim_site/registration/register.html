@@ -1,0 +1,12 @@
+{% extends "base_generic.html" %}
+
+{% block title %}<title>Register</title>{% endblock %}
+
+{% block main %}
+    <main class="form-control form-control-medium">
+        <h1 class="h3 mb-3 fw-normal">Please choose your type</h1>
+
+        <a class="btn btn-lg btn-primary" href="{% url 'register_legal' %}">Legal person</a>
+        <a class="btn btn-lg btn-primary" href="{% url 'register_physical' %}">Physical person</a>
+    </main>
+{% endblock %}

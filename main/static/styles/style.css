@@ -1,0 +1,370 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Source+Sans+Pro:wght@400;700&display=swap");
+
+main {
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 24px;
+    color: #000000;
+}
+
+.main-block {
+    margin-top: 80px;
+}
+
+.main-block .main-block-image {
+    width: 86%;
+}
+
+.main-block .main-block-item {
+    margin: 0;
+}
+
+.main-block .main-block-title {
+    font-weight: 700;
+    font-size: 68px;
+    line-height: 1.3;
+    letter-spacing: 0.5px;
+    margin-top: 205px;
+}
+
+.main-block .main-block-title span {
+    color: #4223FF;
+}
+
+.main-block .main-block-text {
+    margin-top: 58px;
+    font-size: 24px;
+    line-height: 1.3;
+}
+
+.main-block .main-block-btn {
+    margin-top: 46px;
+}
+
+.main-block .main-block-img_line {
+    width: 24px;
+    height: 38px;
+}
+
+.main-block .main-block-button {
+    font-size: 20px;
+    border-radius: 0;
+    background-color: #4223FF;
+}
+
+.main-block .main-block-button:hover {
+    background-color: rgba(64, 35, 255, 0.8823529412);
+    border-color: transparent;
+}
+
+.one-block h1 {
+    margin-top: 209px;
+    font-weight: 700;
+    font-size: 68px;
+}
+
+.one-block .lead {
+    position: relative;
+    padding-top: 18px;
+    padding-bottom: 18px;
+}
+
+.one-block .lead::before, .one-block .lead::after {
+    content: "";
+    position: absolute;
+    border: 1.9px solid #4223FF;
+    width: 15%;
+}
+
+.one-block .lead::after {
+    left: 0;
+    top: 0;
+}
+
+.one-block .lead::before {
+    right: 0;
+    bottom: 0;
+}
+
+.one-block .blok-img-personal {
+    margin-bottom: 1px;
+}
+
+.block_line {
+    margin-top: 95px;
+    border: 1.9px solid #4223FF;
+    width: 15%;
+}
+
+.two-block .lead {
+    position: relative;
+    padding-top: 18px;
+    padding-bottom: 18px;
+}
+
+.two-block .lead::before, .two-block .lead::after {
+    content: "";
+    position: absolute;
+    border: 1.9px solid #4223FF;
+    width: 15%;
+}
+
+.two-block .lead::after {
+    left: 0;
+    top: 0;
+}
+
+.two-block .lead::before {
+    right: 0;
+    bottom: 0;
+}
+
+.three-block .lead {
+    position: relative;
+    padding-top: 18px;
+    padding-bottom: 18px;
+}
+
+.three-block .lead::before, .three-block .lead::after {
+    content: "";
+    position: absolute;
+    border: 1.9px solid #4223FF;
+    width: 15%;
+}
+
+.three-block .lead::after {
+    left: 0;
+    top: 0;
+}
+
+.three-block .lead::before {
+    right: 0;
+    bottom: 0;
+}
+
+.three-block .lead-personal {
+    position: relative;
+    padding-top: 18px;
+    padding-bottom: 18px;
+}
+
+.three-block .lead-personal::before {
+    content: "";
+    position: absolute;
+    border: 1.9px solid #4223FF;
+    width: 15%;
+    left: 0;
+    top: 0;
+}
+
+.four-block .lead {
+    position: relative;
+    padding-top: 18px;
+    padding-bottom: 18px;
+}
+
+.four-block .lead::before, .four-block .lead::after {
+    content: "";
+    position: absolute;
+    border: 1.9px solid #4223FF;
+    width: 15%;
+}
+
+.four-block .lead::after {
+    left: 0;
+    top: 0;
+}
+
+.four-block .lead::before {
+    right: 0;
+    bottom: 0;
+}
+
+.inform-form {
+    font-size: 15px;
+    font-family: "Source Sans Pro", sans-serif;
+}
+
+.margin-one-block {
+    margin-top: 5.5rem;
+}
+
+.margin-two-block {
+    margin-top: 6%;
+}
+
+.margin-three-block {
+    margin-top: 8%;
+}
+
+.margin-four-block {
+    margin-top: 5rem;
+}
+
+.blok-img {
+    width: 86%;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.text-information {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.text-information span {
+    color: #4223FF;
+}
+
+.form-check {
+    padding-left: 40px;
+}
+
+.form-check-input {
+    width: 15px;
+    height: 15px;
+    border-radius: 0;
+}
+
+.form-check-input[type=checkbox] {
+    border-radius: 0;
+}
+
+.form-check-input:checked {
+    background-color: #4223FF;
+}
+
+.text-information {
+    margin-bottom: 6px;
+}
+
+.color-span {
+    color: #4223FF;
+    color: blue;
+}
+
+.upper {
+    text-transform: uppercase;
+}
+
+@media screen and (max-width: 1399.98px) {
+    .lead, .lead-personal {
+        font-size: 20px !important;
+    }
+
+    .one-block h1, .main-block-title {
+        font-size: 58px !important;
+    }
+
+    .main-block-title {
+        margin-top: 11rem !important;
+    }
+
+    .text {
+        font-size: 20px !important;
+    }
+}
+
+@media (max-width: 1199.98px) {
+    .lead, .lead-personal {
+        font-size: 20px !important;
+    }
+
+    .one-block h1, .main-block-title {
+        font-size: 48px !important;
+    }
+
+    .main-block-title {
+        margin-top: 10rem !important;
+    }
+
+    .text {
+        font-size: 19px !important;
+    }
+}
+
+@media screen and (max-width: 991.98px) {
+    .lead, .lead-personal {
+        font-size: 20px !important;
+    }
+
+    .one-block h1, .main-block-title {
+        font-size: 42px !important;
+    }
+
+    .main-block-title {
+        margin-top: 3rem !important;
+    }
+
+    .one-block h1 {
+        margin-top: 11rem !important;
+    }
+
+    .main-block-image {
+        width: 50% !important;
+    }
+
+    .text {
+        font-size: 19px !important;
+    }
+}
+
+@media screen and (max-width: 767.98px) {
+    .lead, .lead-personal {
+        font-size: 18px !important;
+    }
+
+    .one-block h1, .main-block-title {
+        font-size: 44px !important;
+    }
+
+    .main-block-title {
+        margin-top: 4rem !important;
+    }
+
+    .one-block h1 {
+        margin-top: 8rem !important;
+    }
+
+    .text {
+        font-size: 19px !important;
+    }
+}
+
+@media screen and (max-width: 575.98px) {
+    .lead, .lead-personal {
+        font-size: 17px !important;
+    }
+
+    .margin-one-block, .margin-four-block {
+        margin-top: 3rem;
+    }
+
+    .one-block h1 {
+        font-size: 38px;
+        margin-top: 7rem;
+    }
+
+    .main-block-title {
+        font-size: 34px !important;
+        margin-top: 2rem !important;
+    }
+
+    .main-block-text {
+        margin-top: 2rem !important;
+    }
+
+    .text-information {
+        font-size: 19px;
+    }
+
+    .main-block-image {
+        width: 60% !important;
+    }
+
+    .text {
+        font-size: 19px !important;
+    }
+}
+
+/*# sourceMappingURL=style.css.map */

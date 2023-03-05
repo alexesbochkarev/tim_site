@@ -1,0 +1,111 @@
+{% extends "base_generic.html" %}
+{% load static %}
+
+{% block title %}<title>Login</title>{% endblock %}
+
+{% block head_extra %}<link rel="stylesheet" href="{% static "styles/login.css" %}">{% endblock %}
+
+{% block main %}
+    <main class="login-container" id="content">
+
+        <!-- <div class="rounded-pill bg-warning bg-opacity-75">
+            {% if form.errors %}
+                <p>Your username and password didn't match. Please try again.</p>
+            {% endif %}
+
+            {% if next %}
+                {% if user.is_authenticated %}
+                    <p>Your account doesn't have access to this page. To proceed,
+                        please login with an account that has access.</p>
+                {% else %}
+                    <p>Please login to see this page.</p>
+                {% endif %}
+            {% endif %}
+        </div>
+
+        <form method="post" action="">
+            {% csrf_token %}
+            <h1 class="h3 mb-3 fw-normal">Please login</h1>
+
+            {{ form }}
+            <a class="mt-2 btn btn-sm rounded-pill bg-info bg-opacity-50" href="{% url 'password_reset' %}">
+                Lost password?
+            </a>
+            <a class="mt-2 btn btn-sm rounded-pill bg-info bg-opacity-50" href="{% url 'register' %}">
+                Нет аккаунта?Зарегестрируйтесь!
+            </a>
+
+            <input type="hidden" name="next" value="{{ next }}"/>
+            <br>
+            <button class="mt-2 btn btn-lg btn-primary" type="submit" value="login">Sign in</button>
+        </form> -->
+
+
+        <div class="auth">
+            
+            <div class="auth__body">
+              <form class="auth__form" autocomplete="off" method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+
+                {% if form.errors %}
+                    {% for field in form %}
+                    {% for error in field.errors %}            
+                        <div class="">
+                        {{ error|escape }}
+                        </div>
+                    {% endfor %}
+                    {% endfor %}
+                    {% for error in form.non_field_errors %}
+                    <div class="wkp-formstatus wkp-formstatus--failed">
+                        {{ error|escape }}
+                    </div>
+                    {% endfor %}
+                {% endif %}
+
+                <div class="auth__form_body">
+                  <h3 class="auth__form_title">Вход</h3>
+                  <div>
+                    <div class="form-group">
+                      <label class="text-uppercase small text-left">Email</label>
+                      {{ form.username }}
+                    </div>
+                    <div class="form-group">
+                      <label class="text-uppercase small">Password</label>
+                      {{ form.password }}
+                      <a class="mt-2" href="#" data-toggle="modal" data-target="#exampleModalPassword" data-whatever="@mdo">Забыли пароль?</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="auth__form_actions">
+                  <button type="submit" class="btn btn-primary btn-lg btn-block">
+                    Войти
+                  </button>
+                  
+                  <div class="dropdown show">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Нет аккаунта?Зарегестрируйтесь!
+                    </a>
+                  
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <h6 class="dropdown-header">Выерите свой тип</h6>
+                      <a class="dropdown-item" href="#" data-toggle="modal" data-target="#exampleModalLegal" data-whatever="@mdo">Юридическое лицо</a>
+                      <a class="dropdown-item" href="#" data-toggle="modal" data-target="#exampleModalPhysic" data-whatever="@mdo">Физическое лицо</a>
+                    </div>
+
+                </div>
+              </form>
+            </div>
+          </div>
+          
+          {% include "modal/register_legal.html" %}
+          {% include "modal/register_physical.html" %}
+          {% include "modal/password_reset.html" %}
+
+          <script>
+            $('#myModal').on('shown.bs.modal', function () {
+                $('#myInput').trigger('focus')
+            })
+          </script>
+
+    </main>
+{% endblock %}
