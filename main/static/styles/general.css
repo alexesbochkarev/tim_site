@@ -11,21 +11,42 @@ body {
     padding-bottom: 1rem;
 }
 
-.form-control-general {
-    max-width: 80%;
-    margin: auto;
-}
-
 .form-control-small {
     max-width: 20%;
     margin: auto;
 }
 
+
 .form-control-medium {
     max-width: 50%;
-    margin: auto;
+    margin: 13%;
+}
+@media screen and (max-width: 992px) {
+    .form-control-medium {
+        max-width: 100%;
+        margin: 20%;
+    }
+}
+@media screen and (max-width: 768px) {
+    .form-control-medium {
+        max-width: 100%;
+        margin: 25%;
+    }
+}
+@media screen and (max-width: 576px) {
+    .form-control-medium {
+        max-width: 100%;
+        margin: 35%;
+    }
 }
 
+
+
+
+.form-control-general {
+    max-width: 80%;
+    margin: auto;
+}
 @media screen and (max-width: 600px) {
     .form-control-general {
         max-width: 100%;

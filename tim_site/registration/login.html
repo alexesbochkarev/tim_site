@@ -3,10 +3,13 @@
 
 {% block title %}<title>Login</title>{% endblock %}
 
-{% block head_extra %}<link rel="stylesheet" href="{% static "styles/login.css" %}">{% endblock %}
+{% block head_extra %}
+  <link rel="stylesheet" href="{% static "styles/login.css" %}">
+  <link rel="stylesheet" href="{% static 'styles/general.css' %}">
+{% endblock %}
 
 {% block main %}
-    <main class="login-container" id="content">
+    <main class="form-control-medium" id="content">
 
         <!-- <div class="rounded-pill bg-warning bg-opacity-75">
             {% if form.errors %}
@@ -66,11 +69,11 @@
                   <h3 class="auth__form_title">Вход</h3>
                   <div>
                     <div class="form-group">
-                      <label class="text-uppercase small text-left">Email</label>
+                      <label class="text-uppercase small d-flex text-align-left">Логин:</label>
                       {{ form.username }}
                     </div>
                     <div class="form-group">
-                      <label class="text-uppercase small">Password</label>
+                      <label class="text-uppercase small d-flex text-align-left">Пароль:</label>
                       {{ form.password }}
                       <a class="mt-2" href="#" data-toggle="modal" data-target="#exampleModalPassword" data-whatever="@mdo">Забыли пароль?</a>
                     </div>
