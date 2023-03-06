@@ -9,6 +9,7 @@ from django.db import transaction
 from .models import User, PhysicalUser, LegalUser, Plugin
 
 _nice_look_attrs = {"class": "form-control", "placeholder": "1"}
+_nice_look_attrs_pass = {"class": "form-control", "placeholder": "Password"}
 _nice_look_widget = forms.TextInput(attrs=_nice_look_attrs)
 _template_name = "form.html"
 
@@ -21,7 +22,7 @@ def get_password_field(label: str):
     return forms.CharField(
         label=label,
         strip=False,
-        widget=forms.PasswordInput(attrs=_nice_look_attrs | {"autocomplete": "current-password"}),
+        widget=forms.PasswordInput(attrs=_nice_look_attrs_pass | {"autocomplete": "current-password"}),
 
     )
 
@@ -116,7 +117,7 @@ class UserLoginForm(default_forms.AuthenticationForm):
         super(UserLoginForm, self).__init__(*args, **kwargs)
 
     username = forms.EmailField(widget=forms.TextInput(
-        attrs=_nice_look_attrs | {"autofocus": True, "autocapitalize": "none", "autocomplete": "username", }))
+        attrs=_nice_look_attrs | {"autofocus": True, "autocapitalize": "none", "autocomplete": "username", "placeholder": "Email"}))
     password = get_password_field("Password")
 
 

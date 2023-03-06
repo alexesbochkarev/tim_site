@@ -8,13 +8,13 @@
     <main class="form-control-general">
         <h1>Your information</h1>
         {% if user_table %}{% render_table user_table %}{% endif %}
+        <a class="btn  btn-danger" href="{% url "logout" %}">Logout</a>
 
         <h1>Your plugins</h1>
         {#        {% render_table plugins_table %}#}
         {{ plugins_table|safe }}
 
         <a class="btn btn-lg rounded-pill bg-info" href="{% url "personal_cabinet_add" %}">Add new</a>
-        <a class="btn  btn-danger" href="{% url "logout" %}">Logout</a>
 
     </main>
 {% endblock %}

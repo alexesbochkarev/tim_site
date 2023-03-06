@@ -26,15 +26,7 @@ SECRET_KEY = "123321"
 DEBUG = True
 
 # first and last hosts is used in QR code urls
-ALLOWED_HOSTS = [
-    "time-money.shop",
-
-    "37.140.192.155",
-    "localhost",
-    "127.0.0.1",
-
-    "192.168.0.109",
-]
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 

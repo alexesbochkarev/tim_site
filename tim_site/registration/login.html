@@ -11,39 +11,6 @@
 {% block main %}
     <main class="form-control-medium" id="content">
 
-        <!-- <div class="rounded-pill bg-warning bg-opacity-75">
-            {% if form.errors %}
-                <p>Your username and password didn't match. Please try again.</p>
-            {% endif %}
-
-            {% if next %}
-                {% if user.is_authenticated %}
-                    <p>Your account doesn't have access to this page. To proceed,
-                        please login with an account that has access.</p>
-                {% else %}
-                    <p>Please login to see this page.</p>
-                {% endif %}
-            {% endif %}
-        </div>
-
-        <form method="post" action="">
-            {% csrf_token %}
-            <h1 class="h3 mb-3 fw-normal">Please login</h1>
-
-            {{ form }}
-            <a class="mt-2 btn btn-sm rounded-pill bg-info bg-opacity-50" href="{% url 'password_reset' %}">
-                Lost password?
-            </a>
-            <a class="mt-2 btn btn-sm rounded-pill bg-info bg-opacity-50" href="{% url 'register' %}">
-                Нет аккаунта?Зарегестрируйтесь!
-            </a>
-
-            <input type="hidden" name="next" value="{{ next }}"/>
-            <br>
-            <button class="mt-2 btn btn-lg btn-primary" type="submit" value="login">Sign in</button>
-        </form> -->
-
-
         <div class="auth">
             
             <div class="auth__body">
@@ -70,11 +37,11 @@
                   <div>
                     <div class="form-group">
                       <label class="text-uppercase small d-flex text-align-left">Логин:</label>
-                      {{ form.username }}
+                      {{ login.username }}
                     </div>
                     <div class="form-group">
                       <label class="text-uppercase small d-flex text-align-left">Пароль:</label>
-                      {{ form.password }}
+                      {{ login.password }}
                       <a class="mt-2" href="#" data-toggle="modal" data-target="#exampleModalPassword" data-whatever="@mdo">Забыли пароль?</a>
                     </div>
                   </div>
