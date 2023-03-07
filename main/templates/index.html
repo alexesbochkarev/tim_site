@@ -9,9 +9,9 @@
 
 {% block body_class %}{% endblock %}
 {% block main %}
-    <main class="container" id="content">
+    <main class="main-block container" id="content">
         <!-- приветственный блок -->
-        <div class="main-block container">
+        <div class="main-block container scroll-active">
             <div class="row flex-lg-row-reverse g-5">
                 <div class="col-12 col-sm-12 col-lg-5">
                     <div class="w-100 d-flex justify-content-center align-items-center">
@@ -35,13 +35,13 @@
             </div>
         </div>
         <!-- первый блок -->
-        <div class="main-block one-block container">
+        <div class="one-block container scroll-active">
             <div class="row">
-                <h1 class="text-center one-block">
+                <h1 class="text-center">
                     Как это работает?
                 </h1>
             </div>
-            <div class="row margin-one-block">
+            <div class="main-block row margin-one-block">
                 <div class="col-md-6 d-flex align-items-center order-md-2">
                     <p class="lead">
                         В наш 21 век, мало кто из нас не задумывался, как можно было бы
@@ -68,9 +68,11 @@
                     />
                 </div>
             </div>
+        </div>
 
+        <div class="one-block container scroll-active">
 
-            <div class="row ">
+            <div class="row">
                 <div class="col-md-6 d-flex align-items-center">
                     <p class="lead">
                         А ведь это время, мы можем потратить с гораздо большей пользой. Но я
@@ -95,7 +97,7 @@
             </div>
         </div>
         <!-- второй блок -->
-        <div class="main-block two-block container">
+        <div class="two-block container scroll-active">
             <div class="row margin-two-block">
                 <div class="col-md-6 d-flex align-items-center order-md-2">
                     <p class="lead">
@@ -128,7 +130,7 @@
             </div>
         </div>
         <!-- третий блок -->
-        <div class="main-block three-block container">
+        <div class="three-block container scroll-active">
             <div class="row margin-three-block">
                 <div class="col-md-6 ">
                     <p class="lead">
@@ -163,7 +165,7 @@
             </div>
         </div>
         <!-- четвертый блок -->
-        <div class="main-block four-block container">
+        <div class="four-block container scroll-active">
             <div class="row margin-four-block">
                 <div class="col-md-6 order-md-2">
                     <p class="lead">
@@ -225,7 +227,7 @@
                 }
                 let options = { threshold: [0.5] };
                 let observer = new IntersectionObserver(onEntry, options);
-                let elements = document.querySelectorAll('.main-block');
+                let elements = document.querySelectorAll('.scroll-active');
                 for (let elm of elements) {
                 observer.observe(elm);
                 }

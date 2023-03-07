@@ -6,13 +6,16 @@ main {
     color: #000000;
 }
 
-.main-block {
-    margin-top: 80px;
+.scroll-active{
     opacity: 0;
 }
-.main-block.element-show {
+.scroll-active.element-show {
     opacity: 1;
     transition: opacity 1s;
+}
+
+.main-block {
+    margin-top: 80px;
 }
 
 .main-block .main-block-image {
@@ -61,10 +64,10 @@ main {
     border-color: transparent;
 }
 
-.one-block {
-    
+.one-block h1 {
+    margin-top: 80px;
     font-weight: 700;
-    font-size: 47px;
+    font-size: 50px;
 }
 
 .one-block .lead {
