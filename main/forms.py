@@ -26,6 +26,17 @@ def get_password_field(label: str):
 
     )
 
+def get_name_field(label: str):
+    return forms.CharField(label=label, strip=True, max_length=100, widget=_nice_look_widget)
+
+def get_organization_field(label: str):
+    return forms.CharField(label=label, strip=True, max_length=200, widget=_nice_look_widget)
+
+def get_meta_organization_field(label: str):
+    return forms.IntegerField(label=label, min_value=0, max_value=999999999999, widget=forms.NumberInput(_nice_look_attrs | {
+        "min": "0", "max": "999999999999"
+    }))
+
 
 class UserChangeForm(default_forms.UserChangeForm):
     """Form for admin view"""
@@ -41,14 +52,14 @@ class UserCreationForm(default_forms.UserCreationForm):
     template_name = _template_name
 
     email = get_email_field("Email")
-    email1 = get_email_field("Email confirmation")
+    email1 = get_email_field("Подтверждение email")
 
-    password1 = get_password_field("Password")
-    password2 = get_password_field("Password confirmation")
+    password1 = get_password_field("Пароль")
+    password2 = get_password_field("Повторите пароль")
 
-    first_name = forms.CharField(strip=True, max_length=100, widget=_nice_look_widget)
-    last_name = forms.CharField(strip=True, max_length=100, widget=_nice_look_widget)
-    patronymic = forms.CharField(strip=True, max_length=100, widget=_nice_look_widget)
+    last_name = get_name_field("Имя")
+    first_name = get_name_field("Фамилия")
+    patronymic = get_name_field("Отчество")
 
     def clean_email(self):
         return self.cleaned_data["email"].lower()
@@ -79,16 +90,12 @@ class PhysicalUserRegistrationForm(UserCreationForm):
 
 
 class LegalUserRegistrationForm(UserCreationForm):
-    organization_type = forms.CharField(strip=True, max_length=200, widget=_nice_look_widget)
-    organization_name = forms.CharField(strip=True, max_length=200, widget=_nice_look_widget)
-    organization_address = forms.CharField(strip=True, max_length=200, widget=_nice_look_widget)
+    organization_type = get_organization_field("Тип организации")
+    organization_name = get_organization_field("Название организации")
+    organization_address = get_organization_field("Адрес организации")
 
-    INN = forms.IntegerField(min_value=0, max_value=999999999999, widget=forms.NumberInput(_nice_look_attrs | {
-        "min": "0", "max": "999999999999"
-    }))
-    KPP = forms.IntegerField(min_value=0, max_value=999999999, widget=forms.NumberInput(_nice_look_attrs | {
-        "min": "0", "max": "999999999"
-    }))
+    INN = get_meta_organization_field("ИНН")
+    KPP = get_meta_organization_field("КПП")
 
     class Meta:
         model = User
@@ -128,8 +135,8 @@ class PasswordResetForm(default_forms.PasswordResetForm):
 
 class SetPasswordForm(default_forms.SetPasswordForm):
     template_name = _template_name
-    new_password1 = get_password_field("New password")
-    new_password2 = get_password_field("New password confirmation")
+    new_password1 = get_password_field("Новый пароль")
+    new_password2 = get_password_field("Повторите новый пароль")
 
 
 class AddPluginForm(forms.Form):

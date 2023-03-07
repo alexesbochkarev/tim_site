@@ -8,6 +8,11 @@ main {
 
 .main-block {
     margin-top: 80px;
+    opacity: 0;
+}
+.main-block.element-show {
+    opacity: 1;
+    transition: opacity 1s;
 }
 
 .main-block .main-block-image {
@@ -56,10 +61,10 @@ main {
     border-color: transparent;
 }
 
-.one-block h1 {
-    margin-top: 209px;
+.one-block {
+    
     font-weight: 700;
-    font-size: 68px;
+    font-size: 47px;
 }
 
 .one-block .lead {

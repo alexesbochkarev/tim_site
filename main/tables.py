@@ -57,7 +57,7 @@ class PluginTable(tables.Table):
             # todo add qr code
             cur_uuid = row["plugin_id"]
             row_field.insert(-1,
-                             f'<td><a class="btn btn-sm rounded-pill bg-info" href="personal_cabinet/download_qrcode/{cur_uuid}" download>Download</a></td>')
+                            f'<td><a class="btn btn-sm rounded-pill bg-info" id="tableSupported" href="personal_cabinet/download_qrcode/{cur_uuid}" download>Download</a></td>')
                              # f'<td><a class="btn btn-sm rounded-pill bg-info" href="personal_cabinet/download_qrcode/{cur_uuid}" target="_blank">Download</a></td>')
             row_field.append(f'<td><a class="btn btn-sm rounded-pill bg-info" href="personal_cabinet/renew/{cur_uuid}">Renew</a></td>')
             row_tds.append("\n".join(row_field))

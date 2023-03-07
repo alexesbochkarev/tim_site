@@ -6,15 +6,45 @@
     {% load render_table from django_tables2 %}
 
     <main class="form-control-general">
-        <h1>Your information</h1>
+        <h1>Информация о пользователе</h1>
         {% if user_table %}{% render_table user_table %}{% endif %}
-        <a class="btn  btn-danger" href="{% url "logout" %}">Logout</a>
-
-        <h1>Your plugins</h1>
+        <div class="d-flex justify-content-end">
+          <a class="btn btn-danger rounded-pill btn-xs" href="{% url "logout" %}">Выход</a>
+        </div>
+        <h1>Ваши плагины</h1>
         {#        {% render_table plugins_table %}#}
         {{ plugins_table|safe }}
 
-        <a class="btn btn-lg rounded-pill bg-info" href="{% url "personal_cabinet_add" %}">Add new</a>
-
+        <div class="d-flex justify-content-center">
+          <div class="d-flex align-items-center">
+            <a class="btn btn-primary rounded-pill btn-lg disabled disabled_on mx-1" href="#" data-toggle="modal" data-target="#exampleModalPassword" data-whatever="@mdo">Создать плагин</a>
+          </div>
+          <div class="d-flex justify-content-center align-items-center">
+              <input id="form" required="" type="checkbox">
+              <label class="form-check-label px-2" for="form">
+                настоящим я соглашаюсь с <a href="{% url 'privacy_plugin' %}">политикой конфедециальности</a> и правилами пользования плагина
+              </label>
+          </div>
+        </div>
+        {% include "modal/add_plugin.html" %}
     </main>
+{% endblock %}
+{% block script %}
+<script>
+  jQuery(document).ready(function($){
+
+      $(' input[type="checkbox"]').on('change', function(){
+        
+        // Это короткая запись которая означает то же, что и if($(this).prop('checked') == true)
+        if($(this).prop('checked')){  
+          $('a').removeClass("disabled");
+        }
+        else{
+          $('.disabled_on').addClass("disabled");
+        }
+
+      });
+      
+  });
+</script>
 {% endblock %}

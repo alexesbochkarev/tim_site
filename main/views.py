@@ -26,6 +26,7 @@ def index(request):
     return render(request, "index.html")
 
 
+@login_required
 def download(request):
     return render(request, "download.html")
 
@@ -52,18 +53,18 @@ def register_legal(request):
             user = form.save()
             login(request, user)
             return redirect("home", permanent=False)
-    return render(request, "registration/register_legal.html", context={"form": form})
+    return render(request, "registration/login.html", context={"form": form})
 
 
 @user_passes_test(lambda user: user.is_anonymous, login_url=settings.LOGOUT_REDIRECT_URL)
 def register_physical(request):
-    form = PhysicalUserRegistrationForm()
+    form = PhysicalUserRegistrationForm(request.POST)
     if request.method == "POST":
         if form.is_valid():
             user = form.save()
             login(request, user)
             return redirect("home", permanent=False)
-    return render(request, "registration/register_physical.html", context={"form": form})
+    return render(request, "registration/login.html", context={"form": form})
 
 
 @login_required

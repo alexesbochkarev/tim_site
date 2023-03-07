@@ -1,22 +1,21 @@
-<!-- Модальное окно для восстановления пароля -->
 <div class="modal fade" id="exampleModalPassword" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Восстановление пароля</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Создание плагина</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form method="post" action="{% url 'password_reset' %}">
+        <form method="post" action="{% url "personal_cabinet_add" %}">
             <div class="modal-body">
-                <small class="d-flex align-items-left">Введите email, указанный при регистрации:</small>
-                {{ password_reset }}
+                <small class="d-flex align-items-left">Пожалуйста, введите имя для плагина:</small>
+                {{ add_plugin }}
                 {% csrf_token %}    
 
             </div>
             <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Отправить</button>
+            <button type="submit" class="btn btn-primary">Создать</button>
             </div>
         </form>
       </div>
