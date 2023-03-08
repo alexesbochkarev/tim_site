@@ -9,13 +9,13 @@
         </div>
         <form method="post" action="{% url "personal_cabinet_add" %}">
             <div class="modal-body">
-                <small class="d-flex align-items-left">Пожалуйста, введите имя для плагина:</small>
+                <small class="d-flex align-items-left">Пожалуйста, введите имя плагина:</small>
                 {{ add_plugin }}
                 {% csrf_token %}    
 
             </div>
             <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Создать</button>
+            <button type="submit" class="btn btn-primary">Скачать</button>
             </div>
         </form>
       </div>
