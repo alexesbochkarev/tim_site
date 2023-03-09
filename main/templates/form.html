@@ -1,7 +1,7 @@
 {% for field, errors in fields %}
     <div class="{{ field.css_classes|add:" form-floating mb-1" }}">
         {#    <div class="{{ field.css_classes }}">#}
-        {{ field }}
+        {{ field.email }}
         {{ field.label_tag }}
         {% if errors %}
             <div class="bg-danger bg-opacity-75">{{ errors }}</div>

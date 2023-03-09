@@ -8,15 +8,58 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form method="post" action="{% url 'register_physical' %}">
-            <div class="modal-body">
+        <form method="post" action="{% url 'register_physical' %}" id="formValidation">
 
-                {{ register_physical }}
-                {% csrf_token %}    
+            <div class="modal-body">
+                {% if form.errors %}
+                    {% for field in form %}
+                    {% for error in field.errors %}
+                        <div class="alert alert-danger" role="alert">
+                        {{ error|escape }}
+                        </div>
+                    {% endfor %}
+                    {% endfor %}
+                    {% for error in form.non_field_errors %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ error|escape }}
+                    </div>
+                    {% endfor %}
+                {% endif %}
+
+                <div class=" form-floating mb-1">
+                    {{ register_physical.email }}
+                    <label for="id_email">Email:</label>
+                </div>
+                <div class=" form-floating mb-1">
+                    {{ register_physical.email1 }}
+                    <label for="id_email">Подтвердите Email:</label>
+                </div>
+                <div class=" form-floating mb-1">
+                    {{ register_physical.password1 }}
+                    <label for="id_email">Пароль:</label>
+                </div>
+                <div class=" form-floating mb-1">
+                    {{ register_physical.password2 }}
+                    <label for="id_email">Подтвердите пароль:</label>
+                </div>
+                <div class=" form-floating mb-1">
+                    {{ register_physical.first_name }}
+                    <label for="id_email">Фамилия:</label>
+                </div>
+                <div class=" form-floating mb-1">
+                    {{ register_physical.last_name }}
+                    <label for="id_email">Имя:</label>
+                </div>
+                <div class=" form-floating mb-1">
+                    {{ register_physical.patronymic }}
+                    <label for="id_email">Отчество:</label>
+                </div>
+                    {% csrf_token %}
+
 
             </div>
             <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Регистрация</button>
+            <button type="submit" class="btn btn-primary" id="submit">Регистрация</button>
             </div>
         </form>
       </div>

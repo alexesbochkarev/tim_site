@@ -9,7 +9,6 @@ from django.db import transaction
 from .models import User, PhysicalUser, LegalUser, Plugin
 
 _nice_look_attrs = {"class": "form-control", "placeholder": "1"}
-_nice_look_attrs_pass = {"class": "form-control", "placeholder": "Password"}
 _nice_look_widget = forms.TextInput(attrs=_nice_look_attrs)
 _template_name = "form.html"
 
@@ -22,20 +21,24 @@ def get_password_field(label: str):
     return forms.CharField(
         label=label,
         strip=False,
-        widget=forms.PasswordInput(attrs=_nice_look_attrs_pass | {"autocomplete": "current-password"}),
+        widget=forms.PasswordInput(attrs=_nice_look_attrs | {"autocomplete": "current-password"}),
 
     )
+
 
 def get_name_field(label: str):
     return forms.CharField(label=label, strip=True, max_length=100, widget=_nice_look_widget)
 
+
 def get_organization_field(label: str):
     return forms.CharField(label=label, strip=True, max_length=200, widget=_nice_look_widget)
 
+
 def get_meta_organization_field(label: str):
-    return forms.IntegerField(label=label, min_value=0, max_value=999999999999, widget=forms.NumberInput(_nice_look_attrs | {
-        "min": "0", "max": "999999999999"
-    }))
+    return forms.IntegerField(label=label, min_value=0, max_value=999999999999,
+                              widget=forms.NumberInput(_nice_look_attrs | {
+                                  "min": "0", "max": "999999999999"
+                              }))
 
 
 class UserChangeForm(default_forms.UserChangeForm):
@@ -49,10 +52,9 @@ class UserChangeForm(default_forms.UserChangeForm):
 
 class UserCreationForm(default_forms.UserCreationForm):
     """Common things for user creation"""
-    template_name = _template_name
 
     email = get_email_field("Email")
-    email1 = get_email_field("Подтверждение email")
+    email1 = get_email_field("Подтвердите Email")
 
     password1 = get_password_field("Пароль")
     password2 = get_password_field("Повторите пароль")
@@ -74,6 +76,20 @@ class UserCreationForm(default_forms.UserCreationForm):
 
 
 class PhysicalUserRegistrationForm(UserCreationForm):
+    email = forms.EmailField(label="Email", required=True,
+                             widget=forms.EmailInput(attrs=_nice_look_attrs | {"id": "email_id-1"}))
+    email1 = forms.EmailField(label="Подтвердите email", required=True,
+                              widget=forms.EmailInput(attrs=_nice_look_attrs | {"id": "email_id-2"}))
+
+    password1 = forms.CharField(
+        label="Пароль",
+        strip=False,
+        widget=forms.PasswordInput(attrs=_nice_look_attrs | {"autocomplete": "current-password", "id": "pass_id-1"}))
+    password2 = forms.CharField(
+        label="Повторите пароль",
+        strip=False,
+        widget=forms.PasswordInput(attrs=_nice_look_attrs | {"autocomplete": "current-password", "id": "pass_id-2"}))
+
     class Meta:
         model = User
         fields = ("email", "email1", "password1", "password2", "first_name", "last_name", "patronymic")
@@ -124,13 +140,14 @@ class UserLoginForm(default_forms.AuthenticationForm):
         super(UserLoginForm, self).__init__(*args, **kwargs)
 
     username = forms.EmailField(widget=forms.TextInput(
-        attrs=_nice_look_attrs | {"autofocus": True, "autocapitalize": "none", "autocomplete": "username", "placeholder": "Email"}))
+        attrs=_nice_look_attrs | {"autofocus": True, "autocapitalize": "none", "autocomplete": "username",
+                                  "placeholder": "Email"}))
     password = get_password_field("Password")
 
 
 class PasswordResetForm(default_forms.PasswordResetForm):
-    template_name = _template_name
-    email = get_email_field("Email")
+
+    email = forms.EmailField(required=True, widget=forms.EmailInput(attrs=_nice_look_attrs))
 
 
 class SetPasswordForm(default_forms.SetPasswordForm):
@@ -140,8 +157,6 @@ class SetPasswordForm(default_forms.SetPasswordForm):
 
 
 class AddPluginForm(forms.Form):
-    template_name = _template_name
-
     name = forms.CharField(strip=True, max_length=200, widget=_nice_look_widget)
 
     class Meta:

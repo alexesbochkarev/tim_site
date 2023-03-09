@@ -8,10 +8,72 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form method="post" action="{% url 'register_legal' %}">
+        <form method="post" action="{% url 'register_legal' %}" id="formValidationLegal">
             <div class="modal-body">
+                {% if form.errors %}
+                    {% for field in form %}
+                    {% for error in field.errors %}
+                        <div class="alert alert-danger" role="alert">
+                        {{ error|escape }}
+                        </div>
+                    {% endfor %}
+                    {% endfor %}
+                    {% for error in form.non_field_errors %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ error|escape }}
+                    </div>
+                    {% endfor %}
+                {% endif %}
 
-                {{ register_legal }}
+                <div class=" form-floating mb-1">
+                    {{ register_legal.email }}
+                    <label for="id_email">Email:</label>
+                </div>
+                <div class=" form-floating mb-1">
+                    {{ register_legal.email1 }}
+                    <label for="id_email">Подтвердите Email:</label>
+                </div>
+                <div class=" form-floating mb-1">
+                    {{ register_legal.password1 }}
+                    <label for="id_email">Пароль:</label>
+                </div>
+                <div class=" form-floating mb-1">
+                    {{ register_legal.password2 }}
+                    <label for="id_email">Подтвердите пароль:</label>
+                </div>
+                <div class=" form-floating mb-1">
+                    {{ register_legal.first_name }}
+                    <label for="id_email">Фамилия:</label>
+                </div>
+                <div class=" form-floating mb-1">
+                    {{ register_legal.last_name }}
+                    <label for="id_email">Имя:</label>
+                </div>
+                <div class=" form-floating mb-1">
+                    {{ register_legal.patronymic }}
+                    <label for="id_email">Отчество:</label>
+                </div>
+                <div class=" form-floating mb-1">
+                    {{ register_legal.organization_type }}
+                    <label for="id_email">Тип организации:</label>
+                </div>
+                <div class=" form-floating mb-1">
+                    {{ register_legal.organization_name }}
+                    <label for="id_email">Наименование организации:</label>
+                </div>
+                <div class=" form-floating mb-1">
+                    {{ register_legal.organization_address }}
+                    <label for="id_email">Адрес организации:</label>
+                </div>
+                <div class=" form-floating mb-1">
+                    {{ register_legal.INN }}
+                    <label for="id_email">ИНН:</label>
+                </div>
+                <div class=" form-floating mb-1">
+                    {{ register_legal.KPP }}
+                    <label for="id_email">КПП:</label>
+                </div>
+
                 {% csrf_token %}    
 
             </div>

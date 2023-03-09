@@ -10,7 +10,11 @@
         <form method="post" action="{% url "personal_cabinet_add" %}">
             <div class="modal-body">
                 <small class="d-flex align-items-left">Пожалуйста, введите имя плагина:</small>
-                {{ add_plugin }}
+
+                <div class=" form-floating mb-1">
+                    {{ add_plugin.name }}
+                    <label for="id_name">Email:</label>
+                </div>
                 {% csrf_token %}    
 
             </div>
